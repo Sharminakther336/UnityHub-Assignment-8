@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from "react";
 import Navbar from "@/components/navbar/Navbar";
+import Banner from "@/components/home/Banner";
 import { getAllEvents, type Event } from "@/services/eventService";
 
 export default function Home() {
@@ -29,19 +30,31 @@ export default function Home() {
     <>
       <Navbar />
 
-      <main className="min-h-screen bg-[#f5f7f5] px-5 py-12">
-        <section className="mx-auto max-w-6xl">
-          <h1 className="mb-3 text-4xl font-bold text-gray-900">
-            Discover Events
-          </h1>
+      <main className="min-h-screen bg-[#f5f9f5]">
+        <Banner />
 
-          <p className="mb-10 text-gray-600">
-            Find exciting events and connect with your community.
-          </p>
+        <section className="mx-auto max-w-[1440px] px-5 py-16 sm:px-8 lg:px-12">
+          <div className="mb-10">
+            <span className="font-semibold text-[#087D45]">
+              DISCOVER YOUR COMMUNITY
+            </span>
 
-          {loading && <p>Loading events...</p>}
+            <h2 className="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl">
+              Upcoming Community Events
+            </h2>
 
-          {error && <p className="text-red-600">{error}</p>}
+            <p className="mt-3 text-gray-600">
+              Find exciting events and connect with your community.
+            </p>
+          </div>
+
+          {loading && (
+            <p className="text-gray-600">Loading events...</p>
+          )}
+
+          {error && (
+            <p className="text-red-600">{error}</p>
+          )}
 
           {!loading && !error && events.length === 0 && (
             <p className="text-gray-600">No events found.</p>
@@ -51,7 +64,7 @@ export default function Home() {
             {events.map((event) => (
               <article
                 key={event._id}
-                className="overflow-hidden rounded-2xl bg-white shadow-sm"
+                className="overflow-hidden rounded-2xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               >
                 <img
                   src={event.thumbnail}
