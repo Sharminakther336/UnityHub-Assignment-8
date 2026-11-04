@@ -2,81 +2,43 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
-interface Statistics {
-  totalEvents: number;
-  activeMembers: number;
-  volunteers: number;
-  communities: number;
-}
-
-const initialStats: Statistics = {
-  totalEvents: 0,
-  activeMembers: 0,
-  volunteers: 0,
-  communities: 0,
-};
-
-const API_URL = "http://localhost:5000/api/events/stats";
+const statItems = [
+  {
+    value: "120+",
+    label: "Total Events",
+    icon: "▦",
+    color: "bg-[#EAF7ED]",
+    iconColor: "bg-[#D9F2DF] text-[#078344]",
+    numberColor: "text-[#087D45]",
+  },
+  {
+    value: "850+",
+    label: "Active Members",
+    icon: "♧",
+    color: "bg-[#EDF6FF]",
+    iconColor: "bg-[#DCEEFF] text-[#1685E8]",
+    numberColor: "text-[#1765B0]",
+  },
+  {
+    value: "500+",
+    label: "Volunteers",
+    icon: "🤝",
+    color: "bg-[#FFF5E9]",
+    iconColor: "bg-[#FFEBD3] text-[#D97706]",
+    numberColor: "text-[#B96A0B]",
+  },
+  {
+    value: "35+",
+    label: "Communities",
+    icon: "♧",
+    color: "bg-[#F5EEFF]",
+    iconColor: "bg-[#EBDDFE] text-[#7E22CE]",
+    numberColor: "text-[#6516A5]",
+  },
+];
 
 export default function Banner() {
-  const [stats, setStats] = useState<Statistics>(initialStats);
-
-  useEffect(() => {
-    const loadStats = async () => {
-      try {
-        const response = await fetch(API_URL);
-
-        if (!response.ok) {
-          throw new Error("Failed to load statistics");
-        }
-
-        const data: Statistics = await response.json();
-        setStats(data);
-      } catch (error) {
-        console.error("Statistics loading failed:", error);
-      }
-    };
-
-    loadStats();
-  }, []);
-
-  const statItems = [
-    {
-      value: stats.totalEvents,
-      label: "Total Events",
-      icon: "▦",
-      color: "bg-[#EAF7ED]",
-      iconColor: "bg-[#D9F2DF] text-[#078344]",
-      numberColor: "text-[#087D45]",
-    },
-    {
-      value: stats.activeMembers,
-      label: "Active Members",
-      icon: "♧",
-      color: "bg-[#EDF6FF]",
-      iconColor: "bg-[#DCEEFF] text-[#1685E8]",
-      numberColor: "text-[#1765B0]",
-    },
-    {
-      value: stats.volunteers,
-      label: "Volunteers",
-      icon: "🤝",
-      color: "bg-[#FFF5E9]",
-      iconColor: "bg-[#FFEBD3] text-[#D97706]",
-      numberColor: "text-[#B96A0B]",
-    },
-    {
-      value: stats.communities,
-      label: "Communities",
-      icon: "♧",
-      color: "bg-[#F5EEFF]",
-      iconColor: "bg-[#EBDDFE] text-[#7E22CE]",
-      numberColor: "text-[#6516A5]",
-    },
-  ];
-
   return (
     <section className="overflow-hidden bg-[#F5FAF6]">
       <div className="mx-auto grid max-w-[1500px] items-center gap-8 px-5 py-10 sm:px-8 lg:grid-cols-2 lg:gap-10 lg:px-12 lg:py-12">
@@ -144,10 +106,8 @@ export default function Banner() {
             </div>
 
             <div>
-              <h2
-                className={`text-3xl font-extrabold ${stat.numberColor}`}
-              >
-                {stat.value.toLocaleString("en-US")}
+              <h2 className={`text-3xl font-extrabold ${stat.numberColor}`}>
+                {stat.value}
               </h2>
 
               <p className="mt-1 text-base font-medium text-[#56615D]">
