@@ -1,5 +1,4 @@
-
-const API_URL = "http://localhost:5000/api/events?limit=6";
+﻿const API_URL = `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"}/api/events?limit=6`;
 
 export interface Event {
   _id: string;
