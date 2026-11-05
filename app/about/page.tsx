@@ -1,6 +1,8 @@
+
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[#f3faf5] px-6 py-16">
+      {/* Hero Section */}
       <section className="mx-auto max-w-5xl text-center">
         <p className="mb-4 font-semibold text-green-700">
           ABOUT UNITYHUB
@@ -18,11 +20,13 @@ export default function AboutPage() {
         </p>
       </section>
 
+      {/* Mission and Vision */}
       <section className="mx-auto mt-16 grid max-w-5xl gap-8 md:grid-cols-2">
         <div className="rounded-2xl bg-white p-8 shadow-sm">
           <h2 className="mb-4 text-2xl font-bold text-green-700">
             Our Mission
           </h2>
+
           <p className="leading-7 text-gray-600">
             Our mission is to encourage people to participate in
             community service, help others and create positive social
@@ -34,6 +38,7 @@ export default function AboutPage() {
           <h2 className="mb-4 text-2xl font-bold text-green-700">
             Our Vision
           </h2>
+
           <p className="leading-7 text-gray-600">
             Our vision is to build a connected and supportive community
             where everyone can contribute to a better future.
@@ -41,6 +46,7 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Call to Action */}
       <section className="mx-auto mt-10 max-w-5xl rounded-2xl bg-green-700 p-10 text-center text-white">
         <h2 className="mb-4 text-3xl font-bold">
           Be Part of the Change
