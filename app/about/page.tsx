@@ -1,8 +1,6 @@
-
-export default function AboutPage() {
+﻿export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#f3faf5] px-6 py-16">
-      {/* Hero Section */}
+    <main className="min-h-screen bg-[#ecfdf3] px-6 py-16">
       <section className="mx-auto max-w-5xl text-center">
         <p className="mb-4 font-semibold text-green-700">
           ABOUT UNITYHUB
@@ -20,7 +18,6 @@ export default function AboutPage() {
         </p>
       </section>
 
-      {/* Mission and Vision */}
       <section className="mx-auto mt-16 grid max-w-5xl gap-8 md:grid-cols-2">
         <div className="rounded-2xl bg-white p-8 shadow-sm">
           <h2 className="mb-4 text-2xl font-bold text-green-700">
@@ -46,13 +43,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="mx-auto mt-10 max-w-5xl rounded-2xl bg-green-700 p-10 text-center text-white">
+      <section className="mx-auto mt-10 max-w-5xl rounded-2xl bg-[#bbf7d0] p-10 text-center text-green-950">
         <h2 className="mb-4 text-3xl font-bold">
           Be Part of the Change
         </h2>
 
-        <p className="mx-auto max-w-2xl leading-7 text-green-50">
+        <p className="mx-auto max-w-2xl leading-7">
           Join UnityHub, participate in meaningful events and help
           make a positive difference in society.
         </p>
@@ -60,3 +56,4 @@ export default function AboutPage() {
     </main>
   );
 }
+
