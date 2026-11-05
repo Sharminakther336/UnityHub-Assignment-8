@@ -1,6 +1,5 @@
 
-const API_URL = "http://localhost:5000/api/events";
-
+const API_URL = "http://localhost:5000/api/events?limit=6";
 
 export interface Event {
   _id: string;
@@ -13,7 +12,6 @@ export interface Event {
   creatorEmail: string;
   createdAt: string;
 }
-
 
 export const getAllEvents = async (): Promise<Event[]> => {
   const response = await fetch(API_URL);

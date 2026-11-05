@@ -1,12 +1,13 @@
 
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import Navbar from "@/components/navbar/Navbar";
 import { getAllEvents, type Event } from "@/services/eventService";
 
-export default function UpcomingEventsPage() {
+function UpcomingEventsContent() {
   const searchParams = useSearchParams();
 
   const [events, setEvents] = useState<Event[]>([]);
@@ -196,6 +197,13 @@ export default function UpcomingEventsPage() {
                         {event.location}
                       </p>
                     </div>
+
+                    <Link
+                      href={`/events/${event._id}`}
+                      className="mt-6 block w-full rounded-xl bg-[#087D45] px-6 py-3 text-center font-semibold text-white transition hover:bg-[#056337]"
+                    >
+                      View Details →
+                    </Link>
                   </div>
                 </article>
               ))}
@@ -206,3 +214,18 @@ export default function UpcomingEventsPage() {
     </>
   );
 }
+
+export default function UpcomingEventsPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center bg-[#F5FAF6]">
+          <p className="text-gray-600">Loading Upcoming Events...</p>
+        </div>
+      }
+    >
+      <UpcomingEventsContent />
+    </Suspense>
+  );
+}
+
