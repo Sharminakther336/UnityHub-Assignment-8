@@ -1,3 +1,4 @@
+
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[#f3faf5] px-6 py-16">
@@ -45,6 +46,7 @@ export default function AboutPage() {
         <h2 className="mb-4 text-3xl font-bold">
           Be Part of the Change
         </h2>
+
         <p className="mx-auto max-w-2xl leading-7 text-green-50">
           Join UnityHub, participate in meaningful events and help
           make a positive difference in society.
